@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 import uz.ifood.app.v1.entity.Order
 
-@RestController(value = "/v1/")
+@RestController(value = "/v1")
 class OrderControler {
 
     @RequestMapping("/order", method = [RequestMethod.GET])
