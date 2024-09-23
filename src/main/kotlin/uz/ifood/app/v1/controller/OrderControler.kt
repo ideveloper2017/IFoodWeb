@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 import uz.ifood.app.v1.entity.Order
 
-@RestController(value = "/v1")
+@RestController("/v1")
 class OrderControler {
 
     @RequestMapping("/order", method = [RequestMethod.GET])
-    fun index(): ResponseEntity<Order> {
-        return ResponseEntity.ok().build();
+    fun index(): ResponseEntity<String?> {
+
+        return ResponseEntity.ok("Ok");
     }
 }

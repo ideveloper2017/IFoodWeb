@@ -61,20 +61,20 @@ class WebSecurityConfig {
             .csrf { csrf -> csrf.disable() } // Disable CSRF since you're likely using JWT
             .authorizeHttpRequests { auth ->
                 auth
-                    .requestMatchers("/v1/**").permitAll() // Permit all routes
+                    .requestMatchers("/**").permitAll() // Permit all routes
                     .anyRequest().authenticated() // Any other request must be authenticated
             }
-            .exceptionHandling { exceptions ->
-                exceptions
-                        .authenticationEntryPoint(unauthorizedHandler) // Custom unauthorized handler
-            }
-            .sessionManagement { session ->
-                session
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Stateless session management for JWT
-            }
+//            .exceptionHandling { exceptions ->
+//                exceptions
+//                        .authenticationEntryPoint(unauthorizedHandler) // Custom unauthorized handler
+//            }
+//            .sessionManagement { session ->
+//                session
+//                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Stateless session management for JWT
+//            }
 
         // Add JWT filter before the default UsernamePasswordAuthenticationFilter
-        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter::class.java)
+        //http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter::class.java)
 
         return http.build()
     }
