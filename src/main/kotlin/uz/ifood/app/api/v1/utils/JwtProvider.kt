@@ -1,4 +1,4 @@
-package uz.ifood.app.v1.utils
+package uz.ifood.app.api.v1.utils
 
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
@@ -10,7 +10,7 @@ import org.slf4j.Logger
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
-import uz.ifood.app.v1.repository.UserRepository
+import uz.ifood.app.api.v1.repository.UserRepository
 import java.security.SignatureException
 import java.util.Date
 

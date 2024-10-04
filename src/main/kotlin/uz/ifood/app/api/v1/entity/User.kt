@@ -1,4 +1,4 @@
-package uz.ifood.app.v1.entity
+package uz.ifood.app.api.v1.entity
 
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column

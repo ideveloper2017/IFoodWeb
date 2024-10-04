@@ -1,4 +1,4 @@
-package uz.ifood.app.v1.services
+package uz.ifood.app.api.v1.services
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.GrantedAuthority
@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
-import uz.ifood.app.v1.repository.UserRepository
+import uz.ifood.app.api.v1.repository.UserRepository
 import java.util.stream.Collectors
 
 @Service
@@ -16,6 +16,7 @@ class UserDetailsServiceImpl: UserDetailsService {
     @Autowired
     lateinit var userRepository: UserRepository
 
+    @Throws(UsernameNotFoundException::class)
     override fun loadUserByUsername(username: String?): UserDetails? {
         val user = userRepository.findByUsername(username.toString()).get()
             ?: throw UsernameNotFoundException("User '$username' not found")

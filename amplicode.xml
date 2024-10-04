@@ -5,14 +5,4 @@
     <option name="useConstantsForEntities" value="true" />
     <option name="scaffoldingLanguage" />
   </component>
-  <component name="AmplicodePersistenceUnitSettings">
-    <persistence-units>
-      <persistence-unit name="Default">
-        <packages>
-          <package value="uz.ifood.app" />
-          <package value="uz.ifood.app.v1.entity" />
-        </packages>
-      </persistence-unit>
-    </persistence-units>
-  </component>
 </project>

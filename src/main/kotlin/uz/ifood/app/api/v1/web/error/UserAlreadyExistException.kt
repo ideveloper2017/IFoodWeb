@@ -1,4 +1,4 @@
-package uz.ifood.app.v1.web.error
+package uz.ifood.app.api.v1.web.error
 
 class UserAlreadyExistException: RuntimeException {
     constructor():super() {}

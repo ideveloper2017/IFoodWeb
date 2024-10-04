@@ -1,9 +1,10 @@
-package uz.ifood.app.v1.repository
+package uz.ifood.app.api.v1.repository
 
 import jakarta.transaction.Transactional
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.repository.query.Param
-import uz.ifood.app.v1.entity.User
+import uz.ifood.app.api.v1.entity.User
+
 import java.util.Optional
 
 

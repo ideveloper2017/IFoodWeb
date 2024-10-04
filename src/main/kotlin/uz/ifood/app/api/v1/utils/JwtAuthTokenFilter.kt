@@ -1,4 +1,4 @@
-package uz.ifood.app.v1.utils
+package uz.ifood.app.api.v1.utils
 
 import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletException
@@ -14,7 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource
 import org.springframework.web.filter.OncePerRequestFilter
-import uz.ifood.app.v1.services.UserDetailsServiceImpl
+import uz.ifood.app.api.v1.services.UserDetailsServiceImpl
+
 
 class JwtAuthTokenFilter : OncePerRequestFilter() {
 

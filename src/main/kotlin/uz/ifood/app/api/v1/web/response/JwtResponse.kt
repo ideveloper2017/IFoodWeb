@@ -1,4 +1,4 @@
-package uz.ifood.app.v1.web.response
+package uz.ifood.app.api.v1.web.response
 
 import org.springframework.security.core.GrantedAuthority
 
