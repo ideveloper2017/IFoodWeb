@@ -4,19 +4,23 @@ import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.MalformedJwtException
 import io.jsonwebtoken.SignatureAlgorithm
-import io.jsonwebtoken.SignatureException
 import io.jsonwebtoken.UnsupportedJwtException
-import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.slf4j.Logger
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import uz.ifood.app.v1.repository.UserRepository
+import java.security.SignatureException
 import java.util.Date
 
 @Component
 public class JwtProvider {
-    private val logger: Logger = LoggerFactory.getLogger(JwtProvider::class.java)
+
+    companion object{
+        private val logger: Logger = LoggerFactory.getLogger(JwtProvider::class.java)
+    }
+
 
     @Autowired
     lateinit var userRepository: UserRepository

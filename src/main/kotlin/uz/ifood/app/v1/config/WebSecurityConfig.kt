@@ -8,17 +8,13 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
-import org.springframework.security.core.userdetails.User
-import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.security.provisioning.InMemoryUserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
-import org.springframework.security.web.server.SecurityWebFilterChain
 import uz.ifood.app.v1.services.UserDetailsServiceImpl
-import uz.ifood.app.v1.utils.JwtAuthEntryPoint;
+import uz.ifood.app.v1.utils.JwtAuthEntryPoint
 import uz.ifood.app.v1.utils.JwtAuthTokenFilter
+
 
 @Configuration
 @EnableWebSecurity
@@ -27,33 +23,28 @@ class WebSecurityConfig {
     @Autowired
     internal var userDetailsService: UserDetailsServiceImpl? = null
 
-
     @Autowired
     private val unauthorizedHandler: JwtAuthEntryPoint? = null
 
-
-    @Bean
-    fun bCryptPasswordEncoder(): BCryptPasswordEncoder {
-        return BCryptPasswordEncoder()
-    }
 
     @Bean
     fun authenticationJwtTokenFilter(): JwtAuthTokenFilter {
         return JwtAuthTokenFilter()
     }
 
-    @Throws(Exception::class)
-     fun configure(authenticationManagerBuilder: AuthenticationManagerBuilder) {
-        authenticationManagerBuilder
-            .userDetailsService(userDetailsService)
-            .passwordEncoder(bCryptPasswordEncoder())
+    @Bean
+    fun bCryptPasswordEncoder(): BCryptPasswordEncoder {
+        return BCryptPasswordEncoder()
     }
 
-//    @Bean
-//    @Throws(Exception::class)
-//     fun authenticationManagerBean(): AuthenticationManager {
-//        return s
-//    }
+
+
+
+    @Bean
+    @Throws(Exception::class)
+    fun configure(auth: AuthenticationManagerBuilder) {
+
+    }
 
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
@@ -78,6 +69,4 @@ class WebSecurityConfig {
 
         return http.build()
     }
-
-
 }
