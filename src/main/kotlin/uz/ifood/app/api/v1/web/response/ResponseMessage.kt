@@ -1,3 +1,5 @@
 package uz.ifood.app.api.v1.web.response
 
-class ResponseMessage(var message: String?)
+import org.springframework.http.HttpStatus
+
+class ResponseMessage(var status: HttpStatus, var message: String?,data: Array<Any>)

@@ -1,6 +1,6 @@
 package uz.ifood.app.api.v1.controller
 
-import jakarta.validation.Valid
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -22,6 +22,7 @@ import uz.ifood.app.api.v1.web.response.JwtResponse
 import uz.ifood.app.api.v1.web.response.ResponseMessage
 import java.util.*
 import java.util.stream.Collectors
+import javax.validation.Valid
 
 
 @CrossOrigin(origins = ["*"], maxAge = 3600)
@@ -60,7 +61,7 @@ class AuthController() {
         }
 
         return ResponseEntity(
-            ResponseMessage("User not found!"),
+            ResponseMessage(HttpStatus.BAD_REQUEST,"User not found!",arrayOf()),
             HttpStatus.BAD_REQUEST)
     }
 
@@ -70,9 +71,9 @@ class AuthController() {
 
         if (!userCredentials.isPresent) {
             if (usernameExists(newUser.username!!)) {
-                return ResponseEntity(ResponseMessage("Username is already taken!"), HttpStatus.BAD_REQUEST)
+                return ResponseEntity(ResponseMessage( HttpStatus.BAD_REQUEST,"Username is already taken!",arrayOf()), HttpStatus.BAD_REQUEST)
             } else if (emailExists(newUser.email!!)) {
-                return ResponseEntity(ResponseMessage("Email is already in use!"), HttpStatus.BAD_REQUEST)
+                return ResponseEntity(ResponseMessage( HttpStatus.BAD_REQUEST,"Email is already in use!",arrayOf()), HttpStatus.BAD_REQUEST)
             }
 
             val user = User(
@@ -86,9 +87,9 @@ class AuthController() {
             )
             user!!.roles=Arrays.asList(roleRepository.findByName("ROLE_USER"))
             userRepository.save(user)
-            return ResponseEntity(ResponseMessage("User registered successfully!"), HttpStatus.OK)
+            return ResponseEntity(ResponseMessage( HttpStatus.OK,"User registered successfully!",arrayOf()), HttpStatus.OK)
         }
-       return ResponseEntity(ResponseMessage("User already exists!"),
+       return ResponseEntity(ResponseMessage( HttpStatus.BAD_REQUEST,"User already exists!",arrayOf()),
             HttpStatus.BAD_REQUEST)
     }
 
