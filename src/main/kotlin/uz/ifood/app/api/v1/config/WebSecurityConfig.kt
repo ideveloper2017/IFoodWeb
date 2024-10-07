@@ -96,7 +96,7 @@ class WebSecurityConfig: WebSecurityConfigurerAdapter() {
 @Throws(Exception::class)
 override protected fun configure(http: HttpSecurity) {
     http.csrf().disable().authorizeRequests()
-        .antMatchers("/api/**").permitAll()
+        .antMatchers("/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
