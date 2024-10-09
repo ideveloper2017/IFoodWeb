@@ -61,7 +61,7 @@ class AuthController() {
         }
 
         return ResponseEntity(
-            ResponseMessage(HttpStatus.BAD_REQUEST,"User not found!",listOf()),
+            ResponseMessage(HttpStatus.BAD_REQUEST,"User not found!",null),
             HttpStatus.BAD_REQUEST)
     }
 
@@ -71,9 +71,9 @@ class AuthController() {
 
         if (!userCredentials.isPresent) {
             if (usernameExists(newUser.username!!)) {
-                return ResponseEntity(ResponseMessage( HttpStatus.BAD_REQUEST,"Username is already taken!",listOf()), HttpStatus.BAD_REQUEST)
+                return ResponseEntity(ResponseMessage( HttpStatus.BAD_REQUEST,"Username is already taken!",null), HttpStatus.BAD_REQUEST)
             } else if (emailExists(newUser.email!!)) {
-                return ResponseEntity(ResponseMessage( HttpStatus.BAD_REQUEST,"Email is already in use!",listOf()), HttpStatus.BAD_REQUEST)
+                return ResponseEntity(ResponseMessage( HttpStatus.BAD_REQUEST,"Email is already in use!",null), HttpStatus.BAD_REQUEST)
             }
 
             val user = User(
@@ -87,9 +87,9 @@ class AuthController() {
             )
             user!!.roles=Arrays.asList(roleRepository.findByName("ROLE_USER"))
             userRepository.save(user)
-            return ResponseEntity(ResponseMessage( HttpStatus.OK,"User registered successfully!",listOf()), HttpStatus.OK)
+            return ResponseEntity(ResponseMessage( HttpStatus.OK,"User registered successfully!",null), HttpStatus.OK)
         }
-       return ResponseEntity(ResponseMessage( HttpStatus.BAD_REQUEST,"User already exists!",listOf()),
+       return ResponseEntity(ResponseMessage( HttpStatus.BAD_REQUEST,"User already exists!",null),
             HttpStatus.BAD_REQUEST)
     }
 

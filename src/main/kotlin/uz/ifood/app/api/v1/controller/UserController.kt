@@ -28,7 +28,9 @@ class UserController() {
 
     fun getUserContent(authentication: Authentication): ResponseEntity<*> {
         val user: User = userRepository.findByUsername(authentication.name).get()
-        return ResponseEntity<Any>(ResponseMessage(HttpStatus.OK,"Hello " +"!", user.roles?.toList()),HttpStatus.OK)
+
+//        return ResponseEntity<Any>("{status:${HttpStatus.OK},message:'',data:${user}}",HttpStatus.OK)
+        return ResponseEntity<Any>(ResponseMessage(HttpStatus.OK,"Hello "+user+"!", user),HttpStatus.OK)
     }
 }
 
