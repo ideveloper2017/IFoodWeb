@@ -6,15 +6,11 @@ import java.io.Serializable
 import java.time.Instant
 import javax.persistence.Column
 
-abstract class BaseEntity<T>(@Column(name = "created_by", nullable = false, length = 50, updatable = false)
-                             open var createdBy: String? = null,
+abstract class BaseEntity<T>(
 
                              @CreatedDate
                              @Column(name = "created_date", updatable = false)
                              open var createdDate: Instant? = Instant.now(),
-
-                             @Column(name = "last_modified_by", length = 50)
-                             open var lastModifiedBy: String? = null,
 
                              @LastModifiedDate
                              @Column(name = "last_modified_date")

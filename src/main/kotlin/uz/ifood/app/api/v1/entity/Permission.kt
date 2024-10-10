@@ -1,5 +1,7 @@
 package uz.ifood.app.api.v1.entity
 
+import java.io.Serializable
+import java.time.Instant
 import java.util.UUID
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -14,5 +16,8 @@ class Permission (
 
     @ManyToMany(mappedBy = "permissions")
     var roles:Set<Role> = HashSet(),
-){
+    override var createdDate: Instant? = Instant.now(),
+
+    override var lastModifiedDate: Instant? = Instant.now()
+): BaseEntity<Long>(createdDate, lastModifiedDate), Serializable{
 }

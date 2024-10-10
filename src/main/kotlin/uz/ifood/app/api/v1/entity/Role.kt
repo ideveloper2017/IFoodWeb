@@ -1,6 +1,8 @@
 package uz.ifood.app.api.v1.entity
 
 import org.hibernate.annotations.Fetch
+import java.io.Serializable
+import java.time.Instant
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
@@ -37,4 +39,7 @@ data class Role (
 
     @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
     val users:Set<User> =HashSet(),
-)
+
+    override var createdDate: Instant? = Instant.now(),
+    override var lastModifiedDate: Instant? = Instant.now()
+): BaseEntity<Long>(createdDate, lastModifiedDate), Serializable
