@@ -2,6 +2,7 @@ package com.mycompany.myapp.config
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 
+
 /**
  * Properties specific to Khipster.
  *

@@ -15,7 +15,7 @@ import java.util.stream.Collectors
 @Service
 class UserDetailsServiceImpl: UserDetailsService {
 
-    @Autowired
+    @Autowired(required = false)
     lateinit var userRepository: UserRepository
 
     @Throws(UsernameNotFoundException::class)

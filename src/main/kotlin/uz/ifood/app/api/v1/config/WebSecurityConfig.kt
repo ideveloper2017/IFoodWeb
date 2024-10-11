@@ -19,11 +19,12 @@ import uz.ifood.app.api.v1.services.UserDetailsServiceImpl
 import uz.ifood.app.api.v1.utils.JwtAuthEntryPoint
 import uz.ifood.app.api.v1.utils.JwtAuthTokenFilter
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.web.reactive.config.WebFluxConfigurer
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-class WebSecurityConfig: WebSecurityConfigurerAdapter() {
+class WebSecurityConfig: WebSecurityConfigurerAdapter(),WebFluxConfigurer {
 
     @Autowired
     internal var userDetailsService: UserDetailsServiceImpl? = null

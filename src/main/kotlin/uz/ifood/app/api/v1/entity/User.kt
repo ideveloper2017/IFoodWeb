@@ -22,10 +22,7 @@ import javax.persistence.Table
 data class User(
     @Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long? = 0,
     @Column(nullable = false, name = "username") var username: String? = null,
-
-    @JsonIgnore
     @Column(nullable = false, name = "password") var password: String? = null,
-
     @Column(nullable = false, name = "first_name") var first_name: String? = null,
     @Column(nullable = false, name = "last_name") var last_name: String? = null,
     @Column(nullable = false, name = "email") var email: String? = null,

@@ -20,7 +20,7 @@ import uz.ifood.app.api.v1.web.response.ResponseMessage
 @CrossOrigin(origins = ["*"], maxAge = 3600)
 class UserController() {
 
-    @Autowired
+    @Autowired(required = true)
     lateinit var userRepository: UserRepository
 
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
