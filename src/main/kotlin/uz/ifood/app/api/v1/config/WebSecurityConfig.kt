@@ -94,9 +94,12 @@ class WebSecurityConfig: WebSecurityConfigurerAdapter(),WebFluxConfigurer {
 //
 //        return http.build()
 //    }
+
+
 @Throws(Exception::class)
 override protected fun configure(http: HttpSecurity) {
-    http.csrf().disable().authorizeRequests()
+    http.
+    csrf().disable().authorizeRequests()
         .antMatchers("/**").permitAll()
         .anyRequest().authenticated()
         .and()

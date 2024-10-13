@@ -20,7 +20,7 @@ import javax.persistence.Table
 @Entity
 @Table(name = "users")
 data class User(
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long? = 0,
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long? = 0,
     @Column(nullable = false, name = "username") var username: String? = null,
     @Column(nullable = false, name = "password") var password: String? = null,
     @Column(nullable = false, name = "first_name") var first_name: String? = null,

@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany
 
 @Entity
 class Permission (
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) var id: Long =0,
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long =0,
     val name:String? = null,
 
     @ManyToMany(mappedBy = "permissions")

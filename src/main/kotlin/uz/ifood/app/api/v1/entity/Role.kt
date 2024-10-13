@@ -21,13 +21,11 @@ import javax.persistence.Table
 data class Role (
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
 
     @Column(name="name")
     val name: String,
-
-
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
