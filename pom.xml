@@ -11,7 +11,7 @@
     <groupId>uz.ifood.app</groupId>
     <artifactId>iFoodweb</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <name>iFoodweb</name>
     <description>iFoodweb</description>
     <url/>
@@ -21,6 +21,9 @@
     <developers>
         <developer/>
     </developers>
+    <modules>
+        <module>src-firebird</module>
+    </modules>
     <scm>
         <connection/>
         <developerConnection/>
