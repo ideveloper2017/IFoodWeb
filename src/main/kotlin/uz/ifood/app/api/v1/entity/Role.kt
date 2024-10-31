@@ -21,7 +21,7 @@ import javax.persistence.Table
 data class Role (
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     val id: Long,
 
     @Column(name="name")

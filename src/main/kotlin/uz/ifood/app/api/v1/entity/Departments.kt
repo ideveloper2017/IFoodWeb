@@ -11,7 +11,7 @@ import javax.persistence.Table
 @Entity
 @Table(name = "departments")
 data class Departments(@Id
-                       @GeneratedValue(strategy = GenerationType.IDENTITY)
+                       @GeneratedValue(strategy = GenerationType.SEQUENCE)
                        @Column(name = COLUMN_ID_NAME, nullable = false)
                        private var id: Long? = null) {
 

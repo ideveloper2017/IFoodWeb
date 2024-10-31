@@ -11,7 +11,7 @@ import javax.persistence.Table
 @Entity
 @Table(name = Categories.Companion.TABLE_NAME)
 data class Categories( @Id
-                       @GeneratedValue(strategy = GenerationType.IDENTITY)
+                       @GeneratedValue(strategy = GenerationType.SEQUENCE)
                        @Column(name = COLUMN_ID_NAME, nullable = false)
                        private var id: Long? = null,
                        var name: String? = null,

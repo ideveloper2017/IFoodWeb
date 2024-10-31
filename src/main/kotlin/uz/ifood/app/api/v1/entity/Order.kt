@@ -14,6 +14,6 @@ data class Order(
     @Column(nullable = false)
     val name: String,
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     val id: Long? = null
 )
